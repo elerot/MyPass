@@ -1,4 +1,4 @@
-package com.enerjisa.mypass2;
+package com.elerot.mypass2;
 
 import android.content.Context;
 import android.view.LayoutInflater;

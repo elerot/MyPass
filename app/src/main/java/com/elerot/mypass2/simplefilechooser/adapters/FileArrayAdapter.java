@@ -1,4 +1,4 @@
-package com.enerjisa.mypass2.simplefilechooser.adapters;
+package com.elerot.mypass2.simplefilechooser.adapters;
 
 import java.util.List;
 
@@ -11,9 +11,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.enerjisa.mypass2.simplefilechooser.Constants;
-import com.enerjisa.mypass2.simplefilechooser.FileInfo;
-import com.enerjisa.mypass2.R;
+import com.elerot.mypass2.simplefilechooser.Constants;
+import com.elerot.mypass2.simplefilechooser.FileInfo;
+import com.elerot.mypass2.R;
 
 @SuppressLint("DefaultLocale")
 public class FileArrayAdapter extends ArrayAdapter<FileInfo> {

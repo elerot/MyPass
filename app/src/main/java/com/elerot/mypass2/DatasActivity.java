@@ -1,4 +1,4 @@
-package com.enerjisa.mypass2;
+package com.elerot.mypass2;
 
 import android.Manifest;
 import android.app.Activity;
@@ -22,8 +22,8 @@ import android.widget.ListView;
 import android.os.Handler;
 import android.widget.Toast;
 
-import com.enerjisa.mypass2.simplefilechooser.Constants;
-import com.enerjisa.mypass2.simplefilechooser.ui.FileChooserActivity;
+import com.elerot.mypass2.simplefilechooser.Constants;
+import com.elerot.mypass2.simplefilechooser.ui.FileChooserActivity;
 
 import java.io.BufferedReader;
 import java.io.File;
