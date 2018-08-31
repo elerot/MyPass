@@ -4,7 +4,7 @@ Password, crypto,
 
 It is just a application that for myself actualy, but i decided to publish in google play and source in github to improve it
 
-Google Play: https://play.google.com/store/apps/details?id=com.enerjisa.mypass2
+Google Play: https://play.google.com/store/apps/details?id=com.elerot.mypass2
 
 About applicaiton;
   You just sign in with a key for encryption on login(actualy it is not literely login) and then it encypts the your password localy.
