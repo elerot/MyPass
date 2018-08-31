@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.enerjisa.mypass2">
+
+    <uses-sdk />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher2"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.AppCompat" >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".NewUsrActivity"
+            android:label="@string/title_activity_new_usr"
+            android:parentActivityName=".MainActivity" >
+        </activity>
+        <activity
+            android:name=".DatasActivity"
+            android:label="@string/title_activity_datas" >
+        </activity>
+        <activity
+            android:name=".NewData"
+            android:label="@string/title_activity_new_data"
+           >
+        </activity>
+        <activity
+            android:name=".Main2Activity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".simplefilechooser.ui.FileChooserActivity"
+            android:label="@string/title_activity_datas" >
+        </activity>
+
+    </application>
+
+</manifest>

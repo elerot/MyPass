@@ -1,0 +1,6 @@
+yeni surumleri imzalaman gereken jks dosyasi ve bilgileri
+
+key.jks
+key store pass: 1234567890
+key alias: key0
+key pass: 1234567890

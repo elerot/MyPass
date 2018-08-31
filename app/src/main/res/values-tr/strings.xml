@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Şifrelerim</string>
+    <string name="hello_world">Merhaba Dünya</string>
+    <string name="pass">Şifre</string>
+
+    <string name="title_activity_FileChoser">Dosya Seçici</string>
+    <string name="title_activity_datas">Hesablarım</string>
+    <string name="title_activity_main2">Giriş</string>
+    <string name="title_activity_new_data">Ekle/Düzenle</string>
+    <string name="title_activity_new_usr">Yeni Kullanıcı</string>
+    <string name="action_settings">Ayarlar</string>
+    <string name="pres_long">Lütfen uzun basınız</string>
+    <string name="dataDeleted">Veri Silindi</string>
+    <string name="dataSaved">Başarıyla Kaydedildi</string>
+    <string name="dataUnSaved">İşlem Başarısız oldu</string>
+    <string name="ok">Tamam</string>
+    <string name="yes">Evet</string>
+    <string name="no">Hayır</string>
+    <string name="notok">Başarısız</string>
+    <string name="AddNewRecord">Yeni Kayıt Ekle</string>
+    <string name="Order">Sırala</string>
+    <string name="Export">Dışarı Çıkar</string>
+    <string name="Import">İçe Al</string>
+    <string name="deleteData">Veriyi Sil</string>
+    <string name="delete">Sil</string>
+    <string name="save">Kaydet</string>
+    <string name="displayName">Kayıt Başlığı</string>
+    <string name="userName">Kullanıcı Adı</string>
+    <string name="description">Açıklama</string>
+    <string name="fileSize">Dosya Boyutu</string>
+    <string name="currentDir">Şuanki Dizin</string>
+    <string name="file2Import">Eklenen Dosya:</string>
+    <string name="exportFilePath">Seçilen Dosya Yolu:</string>
+</resources>

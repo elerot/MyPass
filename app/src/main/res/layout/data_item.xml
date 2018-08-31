@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="5">
+
+        <TextView
+            android:id="@+id/tvwID"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="test ID"
+            android:visibility="invisible"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_row="0"
+            android:layout_column="0"/>
+
+        <CheckBox
+            android:id="@+id/tvwCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_gravity="left" />
+
+        <TextView
+            android:id="@+id/tvwDisplayName"
+            android:textColor="@android:color/holo_green_dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="test"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:layout_gravity="left" />
+
+        <TextView
+            android:id="@+id/tvwUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="test"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_row="1"
+            android:layout_column="0" android:layout_columnSpan="2" />
+
+        <TextView
+            android:id="@+id/tvwPass"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="0dp"
+            android:text="test"
+            android:layout_row="2"
+            android:layout_column="0" android:layout_columnSpan="2"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/tvwDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="test"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_row="3"
+            android:layout_column="0" android:layout_columnSpan="2" />
+    </GridLayout>
+</LinearLayout>

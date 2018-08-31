@@ -1,0 +1,58 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.enerjisa.mypass2.DatasActivity">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/AddNewRecord"
+        android:id="@+id/btnNewData"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Order"
+        android:id="@+id/btnOrder"
+        android:layout_below="@+id/btnNewData" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etSearch"
+        android:layout_below="@+id/btnOrder"
+        android:hint="@string/displayName" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lwData"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:choiceMode="multipleChoice"
+        android:listSelector="@drawable/selector"
+        android:layout_above="@+id/btnDeleteData"
+        android:clickable="false"
+        android:layout_below="@+id/etSearch" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/delete"
+        android:id="@+id/btnDeleteData"
+        android:layout_above="@+id/btnSettings"
+        android:layout_alignEnd="@+id/lwData" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/action_settings"
+        android:id="@+id/btnSettings"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>
