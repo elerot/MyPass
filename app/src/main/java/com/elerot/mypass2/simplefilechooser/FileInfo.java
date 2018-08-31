@@ -1,4 +1,4 @@
-package com.enerjisa.mypass2.simplefilechooser;
+package com.elerot.mypass2.simplefilechooser;
 
 import android.annotation.SuppressLint;
 

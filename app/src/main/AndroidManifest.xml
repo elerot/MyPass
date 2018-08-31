@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.enerjisa.mypass2">
+    package="com.elerot.mypass2">
 
     <uses-sdk />
 
@@ -27,8 +27,7 @@
         </activity>
         <activity
             android:name=".NewData"
-            android:label="@string/title_activity_new_data"
-           >
+            android:label="@string/title_activity_new_data" >
         </activity>
         <activity
             android:name=".Main2Activity"

@@ -1,4 +1,4 @@
-package com.enerjisa.mypass2;
+package com.elerot.mypass2;
 
 import android.app.Activity;
 import android.content.Intent;
