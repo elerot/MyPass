@@ -1,4 +1,4 @@
-package com.elerot.mypass2;
+package com.elerot.mypass2.Activity;
 
 import android.Manifest;
 import android.app.Activity;
@@ -22,8 +22,13 @@ import android.widget.ListView;
 import android.os.Handler;
 import android.widget.Toast;
 
-import com.elerot.mypass2.simplefilechooser.Constants;
-import com.elerot.mypass2.simplefilechooser.ui.FileChooserActivity;
+import com.elerot.mypass2.Class.AESCrypt;
+import com.elerot.mypass2.Adaptor.DBAdapter;
+import com.elerot.mypass2.Class.data;
+import com.elerot.mypass2.Adaptor.MyAdabtor;
+import com.elerot.mypass2.R;
+import com.elerot.mypass2.SimpleFileChooser.Constants;
+import com.elerot.mypass2.SimpleFileChooser.ui.FileChooserActivity;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -71,7 +76,7 @@ public class DatasActivity extends AppCompatActivity {
         btnNewData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DatasActivity.this, NewData.class);
+                Intent intent = new Intent(DatasActivity.this, NewDataActivity.class);
                 intent.putExtra("dataID", -1);
                 intent.putExtra("userID", userID);
                 //intent.putExtra("key", key);
@@ -209,7 +214,7 @@ public class DatasActivity extends AppCompatActivity {
                 String pass = datas.get(position).pass;
                 String dePass = "";// = datas.get(position).pass;
                 try {
-                    dePass = new AESCrypt(Main2Activity._key).decrypt(pass);
+                    dePass = new AESCrypt(MainActivity._key).decrypt(pass);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -238,12 +243,12 @@ public class DatasActivity extends AppCompatActivity {
                 final long _id = datas.get(position)._id;
                 final boolean[] result = {false};
 
-                Intent intent = new Intent(DatasActivity.this, NewData.class);
+                Intent intent = new Intent(DatasActivity.this, NewDataActivity.class);
                 if (_id > -1) {
                     String pass = datas.get(position).pass;
                     String dePass = "";
                     try {
-                        dePass = new AESCrypt(Main2Activity._key).decrypt(pass);
+                        dePass = new AESCrypt(MainActivity._key).decrypt(pass);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -339,7 +344,7 @@ public class DatasActivity extends AppCompatActivity {
                 if (c != null && c.getCount() > 0) {
                     c.moveToFirst();
                     do {
-                        data d = new data(false, View.INVISIBLE, c.getInt(0), userID, c.getString(1), c.getString(2), c.getString(3), c.getString(4));
+                        data d = new data(false, View.GONE, c.getInt(0), userID, c.getString(1), c.getString(2), c.getString(3), c.getString(4));
                         datas.add(d);
                     } while (c.moveToNext());
                 }

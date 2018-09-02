@@ -1,4 +1,4 @@
-package com.elerot.mypass2;
+package com.elerot.mypass2.Class;
 
 import android.util.Base64;
 
@@ -30,7 +30,7 @@ public class AESCrypt {
     }
 
 
-    public AlgorithmParameterSpec getIV() {
+    private AlgorithmParameterSpec getIV() {
         byte[] iv = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,};
         IvParameterSpec ivParameterSpec;
         ivParameterSpec = new IvParameterSpec(iv);

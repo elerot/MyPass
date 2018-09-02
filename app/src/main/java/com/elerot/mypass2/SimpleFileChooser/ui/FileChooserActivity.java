@@ -1,4 +1,4 @@
-package com.elerot.mypass2.simplefilechooser.ui;
+package com.elerot.mypass2.SimpleFileChooser.ui;
 
 import java.io.File;
 import java.io.FileFilter;
@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import com.elerot.mypass2.simplefilechooser.adapters.FileArrayAdapter;
-import com.elerot.mypass2.simplefilechooser.Constants;
-import com.elerot.mypass2.simplefilechooser.FileInfo;
+import com.elerot.mypass2.SimpleFileChooser.adapters.FileArrayAdapter;
+import com.elerot.mypass2.SimpleFileChooser.Constants;
+import com.elerot.mypass2.SimpleFileChooser.FileInfo;
 import com.elerot.mypass2.R;
 
 import android.app.Activity;

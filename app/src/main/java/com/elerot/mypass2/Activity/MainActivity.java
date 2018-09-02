@@ -1,4 +1,4 @@
-package com.elerot.mypass2;
+package com.elerot.mypass2.Activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -9,14 +9,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class Main2Activity extends AppCompatActivity {
+import com.elerot.mypass2.R;
+
+public class MainActivity extends AppCompatActivity {
 
     public static String _key;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_main);
 
         final EditText etKey = (EditText) findViewById(R.id.etKey);
         Button btnOk2 = (Button) findViewById(R.id.btnLgn2);
@@ -25,7 +27,7 @@ public class Main2Activity extends AppCompatActivity {
         btnOk2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Main2Activity.this, DatasActivity.class);
+                Intent intent = new Intent(MainActivity.this, DatasActivity.class);
                 intent.putExtra("userID", 1);
                 _key = etKey.getText().toString();
                 if (_key.isEmpty())
@@ -39,7 +41,7 @@ public class Main2Activity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main2, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
