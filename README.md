@@ -11,6 +11,6 @@ About applicaiton;
   It means that you can change your key on every login to encrypt your data and your key is not storing anywhere.
   It just storing your encrypted passwords.
   
-  No code qualty matter :) or can be improve.
+  No code quality matter :) or can be improve.
   
  NOTE: it uses AES
