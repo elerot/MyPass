@@ -1,4 +1,4 @@
-package com.elerot.mypass2;
+package com.elerot.mypass2.Activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,7 +9,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class NewData extends AppCompatActivity {
+import com.elerot.mypass2.Class.AESCrypt;
+import com.elerot.mypass2.Adaptor.DBAdapter;
+import com.elerot.mypass2.R;
+
+public class NewDataActivity extends AppCompatActivity {
     public DBAdapter dbAdapter;
 
     public Button btnNewSave;
@@ -66,7 +70,7 @@ public class NewData extends AppCompatActivity {
                 String CryptedPass = cyperText;
                 try
                 {
-                    CryptedPass = new AESCrypt(Main2Activity._key).encrypt(cyperText);
+                    CryptedPass = new AESCrypt(MainActivity._key).encrypt(cyperText);
                 }
                 catch (Exception e)
                 {
@@ -75,13 +79,13 @@ public class NewData extends AppCompatActivity {
 
                 long result = dbAdapter.UpsertData(dataID, userID, etTitle.getText().toString(), etNewUserName.getText().toString(), CryptedPass, etDescription.getText().toString());
                 if (result > -1) {
-                    Toast.makeText(NewData.this,R.string.dataSaved, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(NewDataActivity.this,R.string.dataSaved, Toast.LENGTH_SHORT).show();
                     //intent.putExtra("key", key);
                     intent.putExtra("userID",userID);
                     setResult(Activity.RESULT_OK, intent);
                     finish();
                 } else
-                    Toast.makeText(NewData.this, R.string.dataUnSaved, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(NewDataActivity.this, R.string.dataUnSaved, Toast.LENGTH_SHORT).show();
             }
         });
     }

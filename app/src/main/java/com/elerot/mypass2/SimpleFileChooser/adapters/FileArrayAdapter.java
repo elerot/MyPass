@@ -1,4 +1,4 @@
-package com.elerot.mypass2.simplefilechooser.adapters;
+package com.elerot.mypass2.SimpleFileChooser.adapters;
 
 import java.util.List;
 
@@ -11,8 +11,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.elerot.mypass2.simplefilechooser.Constants;
-import com.elerot.mypass2.simplefilechooser.FileInfo;
+import com.elerot.mypass2.SimpleFileChooser.Constants;
+import com.elerot.mypass2.SimpleFileChooser.FileInfo;
 import com.elerot.mypass2.R;
 
 @SuppressLint("DefaultLocale")

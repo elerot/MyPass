@@ -1,4 +1,4 @@
-package com.elerot.mypass2;
+package com.elerot.mypass2.Adaptor;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CursorAdapter;
 import android.widget.TextView;
+
+import com.elerot.mypass2.R;
 
 /**
  * Created by selcuk.celik on 22.12.2015.
@@ -42,7 +44,7 @@ public class DataCursorAdaptor extends CursorAdapter {
 
         tvID.setText(String.valueOf(id));
         tvCheckBox.setChecked(false);
-        tvCheckBox.setVisibility(View.INVISIBLE);
+        tvCheckBox.setVisibility(View.GONE);
         tvDisplayName.setText(displayName);
         tvUserName.setText(username);
         tvPass.setText(pass);

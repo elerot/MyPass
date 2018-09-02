@@ -1,4 +1,4 @@
-package com.elerot.mypass2;
+package com.elerot.mypass2.Adaptor;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -24,7 +24,7 @@ public class DBAdapter {
     private static final String CREATE_TABLE = "Create table if not exists DATAS "
             + "(ID integer primary key autoincrement, UserID integer, DisplayName VARCHAR, UserName VARCHAR, Pass VARCHAR, Description VARCHAR);";
 
-    DBAdapter(Context ctx) {
+    public DBAdapter(Context ctx) {
         DBHelper = new DatabaseHelper(ctx);
     }
 

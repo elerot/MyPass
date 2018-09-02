@@ -1,4 +1,4 @@
-package com.elerot.mypass2;
+package com.elerot.mypass2.Class;
 
 /**
  * Created by selcuk.celik on 23.12.2015.
