@@ -145,8 +145,10 @@ public class DatasActivity extends AppCompatActivity {
                 }
 
                 for (int i = 0; i < delArr.size(); i++) {
-                    if (dbAdapter.deleteData(delArr.get(i)._id))
+                    if (dbAdapter.deleteData(delArr.get(i)._id)) {
                         filtered.remove(delArr.get(i));
+                        fullRecords.remove(delArr.get(i));
+                    }
                 }
 
                 ArrayAdapter<data> arr = new MyAdabtor(DatasActivity.this, filtered);
