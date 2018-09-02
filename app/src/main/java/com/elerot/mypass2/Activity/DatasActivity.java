@@ -45,7 +45,8 @@ public class DatasActivity extends AppCompatActivity {
     private DBAdapter dbAdapter;
     private long userID;
     private String key;
-    public ArrayList<data> datas;
+    public ArrayList<data> fullRecords;
+    public ArrayList<data> filtered;
     private boolean orderWay = false;
     public AppCompatActivity datasActivity;
 
@@ -67,10 +68,11 @@ public class DatasActivity extends AppCompatActivity {
 
 
         listView = (ListView) findViewById(R.id.lwData);
-        datas = new ArrayList<data>();
+        fullRecords = new ArrayList<data>();
+        filtered = new ArrayList<data>();
         dbAdapter = new DBAdapter(this);
 
-        FiLL();
+        Fill();
         datasActivity = this;
         checkStoragePermissions(datasActivity);
         btnNewData.setOnClickListener(new View.OnClickListener() {
@@ -88,8 +90,8 @@ public class DatasActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 orderWay = !orderWay;
-                //Collections.sort(datas, new CustomComparator());
-                Collections.sort(datas, new Comparator<data>() {
+                //Collections.sort(filtered, new CustomComparator());
+                Collections.sort(filtered, new Comparator<data>() {
                     @Override
                     public int compare(data o1, data o2) {
                         if (orderWay)
@@ -99,7 +101,7 @@ public class DatasActivity extends AppCompatActivity {
                     }
                 });
 
-                ArrayAdapter<data> arr = new MyAdabtor(DatasActivity.this, datas);
+                ArrayAdapter<data> arr = new MyAdabtor(DatasActivity.this, filtered);
                 arr.notifyDataSetChanged();
                 listView.setAdapter(arr);
             }
@@ -114,15 +116,12 @@ public class DatasActivity extends AppCompatActivity {
             }
 
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                ArrayList<data> filtered = new ArrayList<data>();
-
-                for (data data : datas) {
+                filtered = new ArrayList<data>();
+                for (data data : fullRecords) {
                     if (data.displayName.toUpperCase().contains(etSearch.getText().toString().toUpperCase())) {
                         filtered.add(data);
                     }
                 }
-
                 ArrayAdapter<data> arr = new MyAdabtor(DatasActivity.this, filtered);
                 arr.notifyDataSetChanged();
                 listView.setAdapter(arr);
@@ -133,13 +132,13 @@ public class DatasActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ArrayList<data> delArr = new ArrayList<data>();
-                for (int i = 0; i < datas.size(); i++) {
-                    data d = datas.get(i);
+                for (int i = 0; i < filtered.size(); i++) {
+                    data d = filtered.get(i);
                     if (d.vsblty == View.GONE)
                         d.vsblty = View.VISIBLE;
                     else
                         d.vsblty = View.GONE;
-                    datas.set(i, d);
+                    filtered.set(i, d);
 
                     if (d.cbChecked)
                         delArr.add(d);
@@ -147,10 +146,10 @@ public class DatasActivity extends AppCompatActivity {
 
                 for (int i = 0; i < delArr.size(); i++) {
                     if (dbAdapter.deleteData(delArr.get(i)._id))
-                        datas.remove(delArr.get(i));
+                        filtered.remove(delArr.get(i));
                 }
 
-                ArrayAdapter<data> arr = new MyAdabtor(DatasActivity.this, datas);
+                ArrayAdapter<data> arr = new MyAdabtor(DatasActivity.this, filtered);
                 arr.notifyDataSetChanged();
                 listView.setAdapter(arr);
             }
@@ -200,8 +199,6 @@ public class DatasActivity extends AppCompatActivity {
                                     }
                                 })
                                 .setNegativeButton(R.string.no, null).show();
-
-
                     }
                 });
             }
@@ -211,14 +208,14 @@ public class DatasActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String pass = datas.get(position).pass;
-                String dePass = "";// = datas.get(position).pass;
+                String pass = filtered.get(position).pass;
+                String dePass = "";// = filtered.get(position).pass;
                 try {
                     dePass = new AESCrypt(MainActivity._key).decrypt(pass);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                //String pass = datas.get(position).pass;
+                //String pass = filtered.get(position).pass;
                 new AlertDialog.Builder(DatasActivity.this)
                         .setTitle(R.string.pass)
                         .setMessage(dePass)
@@ -240,12 +237,12 @@ public class DatasActivity extends AppCompatActivity {
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                final long _id = datas.get(position)._id;
+                final long _id = filtered.get(position)._id;
                 final boolean[] result = {false};
 
                 Intent intent = new Intent(DatasActivity.this, NewDataActivity.class);
                 if (_id > -1) {
-                    String pass = datas.get(position).pass;
+                    String pass = filtered.get(position).pass;
                     String dePass = "";
                     try {
                         dePass = new AESCrypt(MainActivity._key).decrypt(pass);
@@ -254,10 +251,10 @@ public class DatasActivity extends AppCompatActivity {
                     }
                     intent.putExtra("dataID", _id);
                     intent.putExtra("userID", userID);
-                    intent.putExtra("displayName", datas.get(position).displayName);// ((SQLiteCursor) selectedItemObj[0]).getString(1));
-                    intent.putExtra("userName", datas.get(position).userName);//((SQLiteCursor) selectedItemObj[0]).getString(2));
+                    intent.putExtra("displayName", filtered.get(position).displayName);// ((SQLiteCursor) selectedItemObj[0]).getString(1));
+                    intent.putExtra("userName", filtered.get(position).userName);//((SQLiteCursor) selectedItemObj[0]).getString(2));
                     intent.putExtra("pass", dePass);//((SQLiteCursor) selectedItemObj[0]).getString(3));
-                    intent.putExtra("description", datas.get(position).description);//((SQLiteCursor) selectedItemObj[0]).getString(4));
+                    intent.putExtra("description", filtered.get(position).description);//((SQLiteCursor) selectedItemObj[0]).getString(4));
                     startActivityForResult(intent, 1);
                 } else
                     Toast.makeText(DatasActivity.this, R.string.pres_long, Toast.LENGTH_SHORT).show();
@@ -279,7 +276,7 @@ public class DatasActivity extends AppCompatActivity {
             String currentDateandTime = sdf.format(new Date());
             String fullPath = fileSelected + "/" + currentDateandTime + "_MyPass.txt";
             FileWriter writer = new FileWriter(fullPath);
-            for (data item : datas) {
+            for (data item : fullRecords) {
                 String line = item.userID + ","
                         + (item.displayName.isEmpty() ? "-" : item.displayName) + ","
                         + (item.userName.isEmpty() ? "-" : item.userName) + ","
@@ -333,25 +330,26 @@ public class DatasActivity extends AppCompatActivity {
         }
     }
 
-    private void FiLL() {
+    private void Fill() {
         new Handler().post(new Runnable() {
             @Override
             public void run() {
                 dbAdapter.openR();
                 //dataCursorAdaptor = new DataCursorAdaptor(DatasActivity.this, dbAdapter.GetAllDatas(userID));
-                datas.clear();
+                fullRecords.clear();
                 Cursor c = dbAdapter.GetAllDatas(userID);
                 if (c != null && c.getCount() > 0) {
                     c.moveToFirst();
                     do {
                         data d = new data(false, View.GONE, c.getInt(0), userID, c.getString(1), c.getString(2), c.getString(3), c.getString(4));
-                        datas.add(d);
+                        fullRecords.add(d);
                     } while (c.moveToNext());
                 }
                 if (c != null) {
                     c.close();
                 }
-                ArrayAdapter<data> arr = new MyAdabtor(DatasActivity.this, datas);
+                filtered = fullRecords;
+                ArrayAdapter<data> arr = new MyAdabtor(DatasActivity.this, filtered);
                 listView.setAdapter(arr);
                 dbAdapter.close();
             }
@@ -363,7 +361,7 @@ public class DatasActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if ((requestCode == 1) && (resultCode == RESULT_OK)) {
-            FiLL();
+            Fill();
         } else if ((requestCode == 2) && (resultCode == RESULT_OK)) {
             String fileSelected = data.getStringExtra(Constants.KEY_FILE_SELECTED);
             Toast.makeText(this, getString(R.string.exportFilePath) + fileSelected, Toast.LENGTH_SHORT).show();
