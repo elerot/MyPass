@@ -93,9 +93,9 @@ public class DatasActivity extends AppCompatActivity {
                     @Override
                     public int compare(data o1, data o2) {
                         if (orderWay)
-                            return o1.displayName.compareTo(o2.displayName);
+                            return o1.displayName.toUpperCase().compareTo(o2.displayName.toUpperCase());
                         else
-                            return o2.displayName.compareTo(o1.displayName);
+                            return o2.displayName.toUpperCase().compareTo(o1.displayName.toUpperCase());
                     }
                 });
 
@@ -118,7 +118,7 @@ public class DatasActivity extends AppCompatActivity {
                 ArrayList<data> filtered = new ArrayList<data>();
 
                 for (data data : datas) {
-                    if (data.displayName.startsWith(etSearch.getText().toString())) {
+                    if (data.displayName.toUpperCase().contains(etSearch.getText().toString().toUpperCase())) {
                         filtered.add(data);
                     }
                 }
