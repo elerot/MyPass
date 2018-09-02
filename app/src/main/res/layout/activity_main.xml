@@ -3,55 +3,25 @@
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.elerot.mypass2.Main2Activity">
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Giriş"
-        android:id="@+id/btnLogin"
-        android:layout_below="@+id/cbRememberMe"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:text="@string/ok"
+        android:id="@+id/btnLgn2"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/editTextPass"
-        android:layout_below="@+id/editTextUserName"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:textIsSelectable="false"
-        android:hint="Şifre" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editTextUserName"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:autoText="false"
-        android:hint="Kullanıcı Adı" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Yeni Kullanıcı Yarat"
-        android:id="@+id/btnCreateNewUser"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
-
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Beni Hatırla"
-        android:id="@+id/cbRememberMe"
-        android:checked="false"
-        android:layout_below="@+id/editTextPass"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:id="@+id/etKey"
+        android:layout_above="@+id/btnLgn2"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/pass" />
 
 </RelativeLayout>
