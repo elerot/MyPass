@@ -31,4 +31,6 @@
     <string name="currentDir">Current Dir</string>
     <string name="file2Import">File to Import:</string>
     <string name="exportFilePath">Selected File Path:</string>
+    <string name="copy">Copy</string>
+    <string name="copied">Copied</string>
 </resources>

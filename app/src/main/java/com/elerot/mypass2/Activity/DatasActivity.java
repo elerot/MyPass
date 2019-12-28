@@ -3,6 +3,8 @@ package com.elerot.mypass2.Activity;
 import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.ClipData;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -21,6 +23,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.os.Handler;
 import android.widget.Toast;
+import android.content.ClipboardManager;
 
 import com.elerot.mypass2.Class.AESCrypt;
 import com.elerot.mypass2.Adaptor.DBAdapter;
@@ -214,10 +217,12 @@ public class DatasActivity extends AppCompatActivity {
                 String dePass = "";// = filtered.get(position).pass;
                 try {
                     dePass = new AESCrypt(MainActivity._key).decrypt(pass);
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 //String pass = filtered.get(position).pass;
+                final String finalDePass = dePass;
                 new AlertDialog.Builder(DatasActivity.this)
                         .setTitle(R.string.pass)
                         .setMessage(dePass)
@@ -226,9 +231,12 @@ public class DatasActivity extends AppCompatActivity {
                                 // continue with delete
                             }
                         })
-                        .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                        .setNegativeButton(android.R.string.copy, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-                                // do nothing
+                                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                                ClipData clip = ClipData.newPlainText("Pass", finalDePass);
+                                clipboard.setPrimaryClip(clip);
+                                Toast.makeText(DatasActivity.this, R.string.copied, Toast.LENGTH_SHORT).show();
                             }
                         })
                         .setIcon(android.R.drawable.ic_dialog_alert)
