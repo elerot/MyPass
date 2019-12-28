@@ -5,7 +5,7 @@
     <string name="pass">Şifre</string>
 
     <string name="title_activity_FileChoser">Dosya Seçici</string>
-    <string name="title_activity_datas">Hesablarım</string>
+    <string name="title_activity_datas">Hesaplarım</string>
     <string name="title_activity_main2">Giriş</string>
     <string name="title_activity_new_data">Ekle/Düzenle</string>
     <string name="title_activity_new_usr">Yeni Kullanıcı</string>
@@ -32,4 +32,6 @@
     <string name="currentDir">Şuanki Dizin</string>
     <string name="file2Import">Eklenen Dosya:</string>
     <string name="exportFilePath">Seçilen Dosya Yolu:</string>
+    <string name="copy">Kopyala</string>
+    <string name="copied">Kopyalandı</string>
 </resources>
