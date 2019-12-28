@@ -6,8 +6,8 @@ android {
         //applicationId "com.elerot.mypass2"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 171
-        versionName "1.7.1"
+        versionCode 172
+        versionName "1.7.2"
     }
 
     buildTypes {
